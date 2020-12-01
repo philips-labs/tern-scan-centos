@@ -16,7 +16,7 @@ jobs:
           name: tern 
           path: ${{ steps.scan.outputs.file }} 
       - uses: philips-labs/tern-action@v1.1.0
-        id: scan
+        id: scanspdx
         with:
           image: centos:8.1.1911 
           format: spdxtagvalue
@@ -24,4 +24,14 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: tern-spdx
-          path: ${{ steps.scan.outputs.file }} 
+          path: ${{ steps.scanspdx.outputs.file }} 
+      - uses: philips-labs/tern-action@v1.1.0
+        id: scanjson
+        with:
+          image: centos:8.1.1911 
+          format: json
+          output: centos.json
+      - uses: actions/upload-artifact@v2
+        with:
+          name: tern-json
+          path: ${{ steps.scanjson.outputs.file }} 
