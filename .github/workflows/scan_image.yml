@@ -5,7 +5,7 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
-      - uses: philips-labs/tern-action@v1.1.0
+      - uses: philips-labs/tern-action@v1.3.0
         id: scan
         with:
           image: centos:8.1.1911 
@@ -15,7 +15,7 @@ jobs:
         with:
           name: tern 
           path: ${{ steps.scan.outputs.file }} 
-      - uses: philips-labs/tern-action@v1.1.0
+      - uses: philips-labs/tern-action@v1.3.0
         id: scanspdx
         with:
           image: centos:8.1.1911 
@@ -25,7 +25,7 @@ jobs:
         with:
           name: tern-spdx
           path: ${{ steps.scanspdx.outputs.file }} 
-      - uses: philips-labs/tern-action@v1.1.0
+      - uses: philips-labs/tern-action@v1.3.0
         id: scanjson
         with:
           image: centos:8.1.1911 
