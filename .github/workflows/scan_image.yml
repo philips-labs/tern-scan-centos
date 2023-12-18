@@ -11,7 +11,7 @@ jobs:
           image: centos:8.1.1911 
           format: yaml
           output: centos.yaml
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: tern 
           path: ${{ steps.scan.outputs.file }} 
@@ -21,7 +21,7 @@ jobs:
           image: centos:8.1.1911 
           format: spdxtagvalue
           output: centos.spdx
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: tern-spdx
           path: ${{ steps.scanspdx.outputs.file }} 
@@ -31,7 +31,7 @@ jobs:
           image: centos:8.1.1911 
           format: json
           output: centos.json
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: tern-json
           path: ${{ steps.scanjson.outputs.file }} 
